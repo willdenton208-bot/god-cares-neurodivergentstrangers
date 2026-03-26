@@ -1,30 +1,47 @@
-const container = document.getElementById("content");
-const searchInput = document.getElementById("searchInput");
+const input = document.getElementById("searchInput");
+const contentDiv = document.getElementById("content");
 
-function render(list) {
-  container.innerHTML = "";
-  list.forEach(item => {
+function renderMessages(list) {
+  contentDiv.innerHTML = "";
+
+  if (list.length === 0) {
+    contentDiv.innerHTML = `
+      <div class="card">
+        <h2>I hear you</h2>
+        <p>Your feelings matter, even if I don’t have a perfect response yet.</p>
+      </div>
+    `;
+    return;
+  }
+
+  list.forEach(msg => {
     const card = document.createElement("div");
     card.className = "card";
     card.innerHTML = `
-      <h2>${item.title}</h2>
-      <p>${item.text}</p>
-      <p class="verse">${item.verse}</p>
+      <h2>${msg.title}</h2>
+      <p>${msg.text}</p>
+      <p class="verse">${msg.verse}</p>
     `;
-    container.appendChild(card);
+    contentDiv.appendChild(card);
   });
 }
 
-function filter(query) {
+function searchMessages(query) {
   const q = query.toLowerCase();
-  return messages.filter(m => {
-    const text = m.title + " " + m.text + " " + m.keywords.join(" ");
-    return text.toLowerCase().includes(q);
-  });
+
+  const results = messages.filter(msg =>
+    msg.title.toLowerCase().includes(q) ||
+    msg.text.toLowerCase().includes(q) ||
+    msg.keywords.some(k => k.toLowerCase().includes(q))
+  );
+
+  renderMessages(results);
 }
 
-searchInput.addEventListener("input", () => {
-  render(filter(searchInput.value));
+// When the user types their answer to the question
+input.addEventListener("input", () => {
+  searchMessages(input.value);
 });
 
-render(messages);
+// Optional: show nothing until they type
+contentDiv.innerHTML = "";
