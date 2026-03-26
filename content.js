@@ -1,13 +1,19 @@
-<h1>Faith for Neurodivergent Hearts</h1>
+const messages = [
+  {
+    category: "Feelings",
+    title: "When You Feel Sad",
+    keywords: ["sad", "down", "hurt"],
+    verse: "Psalm 147:3",
+    text: "Your sadness matters. God doesn’t rush you or tell you to ‘get over it.’ He sits with you and heals gently."
+  },
 
-<p class="question">How do you feel right now?</p>
+  {
+    category: "Feelings",
+    title: "When You Feel Angry",
+    keywords: ["angry", "mad", "frustrated"],
+    verse: "Ephesians 4:26",
+    text: "Anger doesn’t make you bad. It means something inside you needs care. God listens to the parts of you that feel unheard."
+  },
 
-<input
-  id="searchInput"
-  type="text"
-  placeholder="Type anything... like: busy, numb, lonely, okay, confused..."
->
-
-<div id="content"></div>
-<script src="content.js"></script>
-<script src="app.js"></script>
+  // Add as many as you want...
+];
