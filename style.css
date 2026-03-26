@@ -1,33 +1,91 @@
+/* Global layout */
 body {
-  background: #111;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  padding: 20px;
+  background: #0d0d0d;
+  color: #f5f5f5;
+  font-family: "Inter", Arial, sans-serif;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
+/* Title */
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 42px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
+/* Search bar */
 input {
-  width: 80%;
-  padding: 12px;
-  margin: 0 auto 20px auto;
-  display: block;
-  font-size: 18px;
-  border-radius: 6px;
-  border: none;
+  width: 100%;
+  padding: 18px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  background: #1a1a1a;
+  color: #fff;
+  margin-bottom: 30px;
 }
 
+/* Cards */
 .card {
-  background: #222;
-  padding: 16px;
-  margin: 12px 0;
-  border-radius: 8px;
+  background: #1c1c1c;
+  padding: 28px;
+  margin: 25px 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 28px rgba(0,0,0,0.5);
+}
+
+.card h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 20px;
+}
+
+/* Bible verse styling */
+.verse {
+  margin-top: 16px;
+  color: #8ecae6;
+  font-style: italic;
+  font-size: 18px;
+}
 .verse {
   color: #8ecae6;
-  margin-top: 8px;
+  font-style: italic;
+  font-size: 18px;
+}
+
+/* Add the fade-in animation BELOW this */
+.card {
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+<footer>
+  Made with care for every neurodivergent heart — you are wonderfully made.
+</footer>
+footer {
+  margin-top: 60px;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #b3b3b3;
+  border-top: 1px solid #333;
+  opacity: 0.8;
 }
